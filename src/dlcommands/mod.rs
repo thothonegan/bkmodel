@@ -1,0 +1,15 @@
+pub(crate) mod g_cleargeometrymode;
+pub(crate) mod g_dl;
+pub(crate) mod g_enddl;
+pub(crate) mod g_tri2;
+pub(crate) mod g_popmtx;
+pub(crate) mod g_rdppipesync;
+pub(crate) mod g_setcombine;
+pub(crate) mod g_setgeometrymode;
+pub(crate) mod g_setothermode_l;
+pub(crate) mod g_setothermode_h;
+pub(crate) mod g_settimg;
+pub(crate) mod g_spnoop;
+pub(crate) mod g_texture;
+pub(crate) mod g_vtx;
+pub(crate) mod unknown;
