@@ -50,10 +50,10 @@ pub struct Model
     m_textures: Vec<Texture>,
 
     /// The display list to render the model
-    m_displayList: DisplayList,
+    m_display_list: DisplayList,
 
     /// The vertex store
-    m_vertexStore: VertexStore,
+    m_vertex_store: VertexStore,
 
     /// The raw data buffer
     /// NOTE: Most of this is in big endian, so convert as needed
@@ -142,8 +142,8 @@ impl Model
             m_internal_vert_count : vert_count as u32, // doesnt sound right
 
             m_textures : Vec::new(),
-            m_displayList: DisplayList::new(),
-            m_vertexStore: VertexStore::new(),
+            m_display_list: DisplayList::new(),
+            m_vertex_store: VertexStore::new(),
             m_data: data
         };
 
@@ -195,14 +195,14 @@ impl Model
     //
     pub fn display_list (&self) -> &DisplayList
     {
-        return &self.m_displayList;
+        return &self.m_display_list;
     }
 
     //
     /// The vertex store
     //
     pub fn vertex_store (&self) -> &VertexStore
-    { return &self.m_vertexStore; }
+    { return &self.m_vertex_store; }
 
     //
     /// The offset within the model that the geometry section starts
@@ -313,7 +313,7 @@ impl Model
             cur += 8;
 
             let command = DisplayListCommand::parse(command_bytes)?;
-            self.m_displayList.add_command(command);
+            self.m_display_list.add_command(command);
         }
 
         return Ok(());
@@ -346,7 +346,7 @@ impl Model
         cur += 2;
 
         // verticies
-        for i in 0..(vertex_count/2)
+        for _i in 0..(vertex_count/2)
         {
             // each vertex should be 16 bytes in a specific format
             // i16: [x][y][z]
@@ -380,7 +380,7 @@ impl Model
                 alpha: a
             };
 
-            self.m_vertexStore.add(vertex);
+            self.m_vertex_store.add(vertex);
         }
 
         return Ok(());

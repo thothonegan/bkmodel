@@ -77,8 +77,8 @@ fn main() {
                 }
             };
 
-            let displayList = model.display_list();
-            let commands = displayList.commands();
+            let display_list = model.display_list();
+            let commands = display_list.commands();
 
             for command in commands
             {

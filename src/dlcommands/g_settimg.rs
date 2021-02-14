@@ -36,13 +36,13 @@ impl G_SETTIMG
     pub fn psuedo_code (&self) -> String
     {
         return format!("G_SETTIMG format:{}_{} segAddrOfTex:{:#X}",
-            self.p_textureFormatName(),
-            self.p_textureBitSize(),
+            self.p_texture_format_name(),
+            self.p_texture_bitsize(),
             self.m_segment_address_of_texture
         );
     }
 
-    pub fn p_textureFormatName (&self) -> String {
+    pub fn p_texture_format_name (&self) -> String {
         return match self.m_texture_format_flag {
             0 => "RGBA".to_string(),
             1 => "YUV".to_string(),
@@ -54,7 +54,7 @@ impl G_SETTIMG
         };
     }
 
-    pub fn p_textureBitSize (&self) -> u8 {
+    pub fn p_texture_bitsize (&self) -> u8 {
         return match self.m_texture_bit_size_flag {
             0 => 4,
             1 => 8,

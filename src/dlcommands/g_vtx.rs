@@ -22,8 +22,8 @@ impl G_VTX
     pub fn new (cmd : [u8;8]) -> Result<G_VTX>
     {
         let vertex_start = cmd[1];
-        let count = cmd[2] & 0xFC;
-        let data_length = ((cmd[3] & 0x03) | cmd[4]) as u16;
+        let count = (cmd[2] & 0xFC) >> 2;
+        let data_length = (((cmd[2] & 0x03) as u16) << 8)| (cmd[3] as u16);
         let segmented_address = u32::from_be_bytes(cmd[4..8].try_into().context(FailedSliceError)?);
 
         return Ok(G_VTX{
